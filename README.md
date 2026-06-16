@@ -92,6 +92,12 @@ Every assessment returns:
 
 ---
 
+## Example Output
+
+See the [TSLA assessment example](./examples/TSLA-2026-06-15.md) *(add your saved reports here)*.
+
+---
+
 ## Requirements
 
 - GitHub Copilot with Agent mode enabled
