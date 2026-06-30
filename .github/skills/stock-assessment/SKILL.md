@@ -6,7 +6,7 @@ argument-hint: "Ticker symbol or company name (e.g. AAPL, Microsoft, TSLA)"
 
 # Stock Assessment
 
-A comprehensive, structured framework for evaluating any publicly traded company. Given a ticker or company name, produce a full investment research report across eight scored dimensions.
+A comprehensive, structured framework for evaluating any publicly traded company. Given a ticker or company name, produce a full investment research report across eight steps, five of which are scored out of 5.
 
 ## When to Use
 
@@ -18,14 +18,23 @@ A comprehensive, structured framework for evaluating any publicly traded company
 
 Work through each section in order. Use web search, SEC EDGAR, and the company's Investor Relations page as primary sources. Score each section **out of 5** (5 = excellent, 3 = average, 1 = poor) and record a brief justification.
 
+## Process Rules
+
+Apply these rules throughout every assessment:
+
+- **Cite every figure.** For each data point (revenue, margins, ROIC, insider %, etc.) state the source and the filing/period it came from (e.g. "FY2024 10-K", "Q1 2025 13F"). Prefer primary filings over aggregators.
+- **Never fabricate data.** If a figure cannot be found or verified, write `data unavailable — not verified` and reflect the gap in the section score and justification. Do not estimate or infer numbers and present them as fact.
+- **Date everything.** Record the assessment date and the as-of date of the price and figures used; financial data goes stale quickly.
+- **Separate fact from judgement.** Keep reported numbers distinct from your interpretation of them.
+
 ---
 
 ### Step 1 — Identify the Company
 
 1. Confirm the full legal company name, primary exchange, and ticker.
 2. Identify the sector and industry classification (GICS).
-3. Note the current market capitalisation.
-4. **Gate check**: If market cap < $10B, flag as small-cap and note higher risk profile.
+3. Note the current market capitalisation and the current share price (record the as-of date).
+4. **Size context** (not a disqualifier): classify by market cap — small-cap < $2B, mid-cap $2–10B, large-cap > $10B. Flag small/mid-caps for higher risk and thinner institutional coverage. See [./references/screening-criteria.md](./references/screening-criteria.md).
 
 ---
 
@@ -36,7 +45,7 @@ Follow the criteria in [./references/screening-criteria.md](./references/screeni
 Key checks:
 - 10-year revenue growth trend (positive / accelerating / decelerating / negative)
 - Current profitability (net income positive last 3 years)
-- Market cap > $10B (investable universe gate)
+- Market cap size context (large / mid / small — context, not a hard disqualifier)
 - Net debt / EBITDA ratio (target < 3×)
 - Institutional and notable investor ownership — who is buying or considering?
 
@@ -98,8 +107,9 @@ Key checks:
 - Conflicts of interest on the board
 - Active litigation or regulatory investigations
 - Recent press releases and news cycle sentiment
+- Congressional & Presidential trading (STOCK Act disclosures, committee relevance, executive branch holdings — see [./references/red-flags.md](./references/red-flags.md) Section 6 and [./references/data-sources.md](./references/data-sources.md) Congressional Trading section)
 
-**Score this section /5** (5 = clean, no flags; 1 = multiple serious red flags).
+**Score this section /5** (5 = clean, no flags; 1 = multiple serious red flags). The Red Flags score is an average of six sub-areas: Compensation, Insider Trading, Conflicts, Litigation, News, and Congressional & Presidential Trading.
 
 ---
 
@@ -119,9 +129,9 @@ Produce a concise SWOT table:
 
 ### Step 8 — Overall Verdict
 
-Compile the scored report and produce a final verdict.
+Compile the scored report into a **Quality Score**, apply a **valuation overlay**, then produce a final verdict.
 
-**Scoring Table**
+**Quality Score Table**
 
 | Section | Score /5 | Key Finding |
 |---------|----------|-------------|
@@ -130,14 +140,33 @@ Compile the scored report and produce a final verdict.
 | Financial Analysis | | |
 | Strategy & Returns | | |
 | Red Flags | | |
-| **Total** | **/25** | |
+| **Quality Total** | **/25** | |
 
-**Overall Rating** (Total / 25):
-- 21–25 → Strong Buy candidate — high conviction
-- 16–20 → Watchlist / Buy on weakness
-- 11–15 → Neutral — needs monitoring
-- 6–10 → Caution — significant concerns
-- 1–5 → Avoid — multiple red flags
+**Quality Rating** (Total / 25):
+- 21–25 → Excellent business quality
+- 16–20 → Good quality
+- 11–15 → Average quality
+- 6–10 → Below-average quality
+- 1–5 → Poor quality
+
+**Valuation Overlay**
+
+The Quality Score measures business *quality only* — not price. A great business at the wrong price is not a buy. Classify the current valuation against the company's own history and close peers using at least two of:
+- P/E (vs. 5-year median and peers)
+- EV/EBITDA (vs. 5-year median and peers)
+- P/FCF or FCF yield (vs. 5-year median and peers)
+
+Classify valuation as **Cheap / Fair / Expensive** and state the multiples and references used. See [./references/data-sources.md](./references/data-sources.md) (Valuation Context).
+
+**Final Verdict** — combine quality and valuation:
+
+| Quality | Valuation | Verdict |
+|---------|-----------|---------|
+| High (16+) | Cheap / Fair | Buy candidate |
+| High (16+) | Expensive | Watchlist — buy on weakness |
+| Average (11–15) | Cheap | Speculative — monitor |
+| Average (11–15) | Fair / Expensive | Neutral — monitor |
+| Low (≤10) | Any | Avoid |
 
 Conclude with:
 1. **Bull case** (2–3 sentences)
@@ -153,7 +182,9 @@ See [./references/data-sources.md](./references/data-sources.md) for the full li
 ## Output Format
 
 Always produce the full report in structured Markdown with:
+- A header line: `**{Company} ({Exchange}: {Ticker})** — assessed {date}, share price {price} {currency}`
 - Section headers matching the eight steps above
-- Score callout for each section (e.g. `**Score: 4/5**`)
+- Score callout for each scored section (e.g. `**Score: 4/5**`), with a one-line justification and cited sources
 - SWOT table
-- Final scoring table and verdict
+- Quality Score table, valuation overlay, and final verdict
+- A closing disclaimer: *This is educational research only, not financial advice. Verify all figures against primary filings before making any investment decision.*

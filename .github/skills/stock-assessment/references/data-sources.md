@@ -65,7 +65,7 @@ URL: https://www.sec.gov/cgi-bin/browse-edgar
 | Dataroma | https://www.dataroma.com | Superinvestor portfolios (Buffett, Ackman, Munger, etc.) |
 | Finviz | https://finviz.com | Institutional ownership %, short interest |
 | OpenInsider | https://openinsider.com | Form 4 insider transactions with filters |
-| SEC 13F search | https://efts.sec.gov/LATEST/search-index?q=%22ticker%22&dateRange=custom&startdt=2024-01-01&forms=13F-HR | Direct 13F search |
+| SEC 13F search | https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&type=13F-HR | Search 13F filings by institution name |
 
 ---
 
@@ -104,6 +104,26 @@ URL: https://www.sec.gov/cgi-bin/browse-edgar
 | DOJ Press Releases | https://www.justice.gov/news | DOJ corporate investigations |
 | FTC Actions | https://www.ftc.gov/news-events/news/press-releases | Antitrust and consumer protection |
 | 10-K Item 3 | SEC EDGAR | "Legal Proceedings" section in annual report |
+
+---
+
+## Congressional & Presidential Trading
+
+These sources cover STOCK Act disclosures from US legislators and executive branch ethics filings.
+
+| Source | URL | Best For |
+|--------|-----|---------|
+| Capitol Trades | https://www.capitoltrades.com | Search by ticker; individual legislator trades with committee membership |
+| Quiver Quantitative — Congress | https://www.quiverquant.com/congresstrading/ | Aggregated congressional trade data ranked by stock |
+| House Financial Disclosures | https://disclosures.house.gov | Official STOCK Act filings — House members |
+| Senate Financial Disclosures | https://efts.senate.gov/LATEST/search-index | Official STOCK Act filings — Senate members |
+| Office of Government Ethics (OGE) | https://www.oge.gov | Presidential and executive branch annual financial disclosures |
+| Unusual Whales Congress | https://unusualwhales.com/politics | Congress trade feed with options activity and timing analysis |
+
+**Notes:**
+- STOCK Act requires disclosure within **30–45 calendar days** of the trade date; there can be a lag
+- Non-US stocks and non-US legislators are **not covered** by STOCK Act — note `data unavailable — not applicable` for non-US equities
+- Capitol Trades and Quiver Quant aggregate data; always cross-reference against the official House/Senate disclosure portals for accuracy
 
 ---
 

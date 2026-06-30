@@ -34,6 +34,7 @@ Sources:
 - OpenInsider: https://openinsider.com
 - Finviz insider tracker: https://finviz.com (Insider Trading section)
 - UK: PDMR disclosures on the company's RNS/LSE page
+- Non-US issuers / ADRs: Form 4 does not apply. Use local insider/PDMR disclosure regimes (UK RNS, EU MAR, etc.); for many ADRs and foreign filers US insider data is unavailable — note this gap rather than inferring.
 
 ### Framework
 
@@ -139,8 +140,66 @@ Scan last 3–6 months of news:
 
 ---
 
+## 6. Congressional & Presidential Trading
+
+Politicians subject to the STOCK Act (US) must disclose trades within **30–45 days**. These disclosures can be green or red signals depending on context — especially when the trading member sits on a committee with oversight of the company's sector.
+
+Sources:
+- **Capitol Trades**: https://www.capitoltrades.com — search by ticker; shows individual legislator trades, committee memberships, party
+- **Quiver Quantitative — Congress Trading**: https://www.quiverquant.com/congresstrading/ — aggregated congressional trade data by stock
+- **House Financial Disclosures**: https://disclosures.house.gov — official STOCK Act filings (House members)
+- **Senate Financial Disclosures**: https://efts.senate.gov/LATEST/search-index — official STOCK Act filings (Senate members)
+- **Office of Government Ethics (OGE)**: https://www.oge.gov/web/oge.nsf/Presidential+Financial+Disclosure — presidential and executive branch disclosures
+- **White House ethics pledges / annual financial disclosures** — listed on OGE and White House official releases
+
+### What to Check
+
+**Step 1 — Congressional activity**
+1. Search Capitol Trades and Quiver Quant for the ticker. Record:
+   - Number of distinct legislators who have traded the stock in the last 24 months
+   - Net direction: more buyers than sellers, or vice versa?
+   - Committee relevance: do any trading members sit on committees with direct oversight of the company's sector (e.g. Senate Banking, House Energy & Commerce, Senate Armed Services)?
+2. Classify each significant trade:
+
+| Signal | Interpretation |
+|--------|---------------|
+| Multiple legislators buying — especially those on relevant oversight committees | Positive signal — informed conviction; potential policy tailwind |
+| Bipartisan cluster buying | Stronger positive signal — cross-aisle confidence |
+| Cluster selling before a regulatory announcement or negative news | Red flag — potential information asymmetry or insider access |
+| Single legislator buying/selling (routine portfolio management) | Neutral — note but do not overweight |
+| Legislator sells entire position shortly before bad news | High concern — potential misuse of non-public information |
+
+**Step 2 — Presidential / executive branch activity**
+1. Check OGE annual financial disclosure for the sitting president and immediate family members.
+2. Note any holdings, purchases, or disposals in the stock or closely related entities.
+3. Check for executive orders, White House policy announcements, or regulatory actions that could directly benefit or harm the company — and whether these correlate with any executive branch trading.
+
+| Signal | Interpretation |
+|--------|---------------|
+| President or senior official holds a significant position | Note as context — may indicate policy alignment or conflict of interest |
+| Recent purchase before a positive policy announcement | Flag as potential conflict of interest; reference any ethics disclosures |
+| No holdings or disclosures found | Neutral |
+
+### What Not to Infer
+
+- Congressional trading data **does not confirm insider information** — many trades are routine. Report the pattern; do not allege illegality.
+- **Correlation is not causation.** A legislator buying a stock before good news may have used only public information.
+- Always note data-unavailable gaps: non-US legislators and non-US listed companies are not covered by STOCK Act; note this limitation and mark as `data unavailable — not applicable` if the stock is non-US.
+
+**Scoring guide:**
+
+| Score | Criteria |
+|-------|---------|
+| 5 | No notable congressional/executive trading; or net buying by relevant committee members with no conflict concerns |
+| 4 | Minor trading activity; mostly routine; no committee-relevant concern |
+| 3 | Mixed — some cluster buying AND selling; limited relevance to oversight committees |
+| 2 | Net selling by multiple legislators; or buying immediately preceding favorable legislation |
+| 1 | Clear pattern of cluster selling before bad news; executive branch trading coincides with policy decisions; active ethics investigation |
+
+---
+
 ## Red Flags — Composite Score
 
-Score each sub-area (Compensation, Insider Trading, Conflicts, Litigation, News) and average them to produce the overall **Red Flags score out of 5**.
+Score each sub-area (Compensation, Insider Trading, Conflicts, Litigation, News, Congressional & Presidential Trading) and average them, then **round to the nearest 0.5**, to produce the overall **Red Flags score out of 5**.
 
-**Important:** A score of 1 in Litigation or Conflicts of Interest alone should cap the overall Red Flags score at 2, regardless of other sub-scores.
+**Important:** A score of 1 in Litigation or Conflicts of Interest alone should cap the overall Red Flags score at 2, regardless of other sub-scores. A score of 1 in Congressional & Presidential Trading (clear conflict-of-interest pattern) also caps the overall score at 2.
