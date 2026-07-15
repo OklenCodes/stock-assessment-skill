@@ -137,3 +137,24 @@ These sources help contextualise whether the stock is cheap or expensive relativ
 | Morningstar Fair Value | https://www.morningstar.com | Analyst fair value with moat rating |
 | DCF calculators | Various | Build your own in Excel using FCF projections |
 | P/E, EV/EBITDA, P/FCF | Koyfin / TIKR | Peer comparison multiples |
+
+---
+
+## When Primary Sources Are Unavailable
+
+If primary data sources are inaccessible (network content filtering such as Wandera/Zscaler, site downtime, paywalls), use the following fallback hierarchy:
+
+| Priority | Source | URL | Notes |
+|---|---|---|---|
+| 1 | TIKR Terminal | https://tikr.com | Institutional-quality multi-year data; free tier covers most needs |
+| 2 | Koyfin | https://koyfin.com | Comprehensive financials + peer comparisons; free tier available |
+| 3 | GuruFocus | https://www.gurufocus.com | 10-year history for most metrics; ROIC/ROCE history; free basic data |
+| 4 | Company IR page (direct) | `ir.<company>.com` | Quarterly earnings press releases are always the authoritative source |
+| 5 | SEC EDGAR full-text search | https://efts.sec.gov/LATEST/search-index | Search for 10-K / 10-Q directly; no third-party dependency |
+| 6 | Simplywall.st | https://simplywall.st | Visualised fundamentals; good quick overview |
+
+**If no live data can be retrieved at all:**
+- Apply the skill's `data unavailable — not verified` rule to all financial figures
+- Qualitative sections (Step 3 — Business Model, Step 5 — Strategy moat/customer sentiment) may still be assessed using model training knowledge, clearly marked as `⚠ training knowledge — not live-verified`
+- Steps 2 and 4 (quantitative screening and financial analysis) should be scored provisionally or withheld pending verification
+- **Do not produce a Final Verdict** without verified financial data and a confirmed current share price

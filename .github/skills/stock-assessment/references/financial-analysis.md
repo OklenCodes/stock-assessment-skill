@@ -130,3 +130,73 @@ Calculate and record for **Revenue**, **EPS**, and **FCF**:
 ## Combined Financial Score
 
 Average the sub-scores from Income Statement, Balance Sheet, Cash Flow, and CAGR to arrive at the single **Financial Analysis score out of 5** reported in the main assessment.
+
+**Cap rule:** If any sub-area scores **1** (e.g., going-concern risk on the balance sheet, or persistently negative FCF with no clear path to profitability), cap the combined Financial Analysis score at **2**, regardless of how the other sub-areas score.
+
+---
+
+## Sector-Specific Adaptations
+
+Standard EBITDA / leverage / FCF metrics do not translate cleanly across all industries. Apply the adaptations below before scoring Steps 2 and 4.
+
+---
+
+### Banking & Financial Institutions
+
+Replace or supplement standard metrics with banking-specific equivalents:
+
+| Standard Metric | Banking Equivalent | Source |
+|---|---|---|
+| Revenue growth | Net Interest Income (NII) + Fee income growth | 10-K / earnings release |
+| Operating / EBITDA margin | Return on Tangible Equity (RoTE) and Cost-to-Income ratio | 10-K |
+| Net Debt / EBITDA | CET1 Capital Ratio (regulatory comfort ≥ 12%) | Basel III Pillar 3 disclosure |
+| Gross margin | Net Interest Margin (NIM) | Earnings supplement |
+| FCF yield | Dividend payout from distributable earnings; Loan-to-Deposit Ratio (LDR) | 10-K |
+
+Additional KPIs to track: Non-Performing Loan (NPL) ratio, Loan Loss Provision trend, Tangible Book Value per share.
+
+> **Do not** apply Net Debt / EBITDA to banks — their balance sheet structure (customer deposits counted as liabilities) makes this metric meaningless. Use regulatory capital ratios instead.
+
+---
+
+### Exchange Operators & Financial Market Infrastructure
+
+| Issue | Adaptation |
+|---|---|
+| Gross vs. net revenue | Exchanges pass through transaction-based fees (e.g. payments to liquidity providers, regulatory fees). Always use **net revenues** (after transaction-based expenses) as the meaningful revenue metric. These typically equal the "Gross Profit" line in standardised financial data aggregators. |
+| Clearing house assets | Central counterparty clearing (CCP) balance sheets include member performance bonds that are not the exchange's own capital. For example, CME Group reported ~$165B in "Other Current Assets" that are matched dollar-for-dollar by equivalent current liabilities. **Exclude these clearing house items** from leverage, asset turnover, and working capital calculations. Use only operational debt vs. operational EBITDA for leverage ratios. |
+| KPIs | Average Daily Volume (ADV), Rate Per Contract (RPC), Annual Recurring Revenue (ARR) for data/software segments, Remaining Performance Obligations (RPO), open interest |
+
+---
+
+### Pre-Profitability Growth Companies
+
+When GAAP net income is consistently negative (early-stage hardware, growth SaaS in scaling phase, pre-revenue biotech):
+
+- Do **not** apply a score of 1 to the FCF sub-area solely because FCF is negative, if the company has adequate cash runway (> 18 months) and a credible path to profitability
+- Prioritise: **gross margin trajectory** (is gross margin expanding toward a sustainable model?), **revenue growth rate**, and **cash runway** (months until next required capital raise)
+- **Cap the FCF sub-score at 3** (not 1) during a deliberate investment phase — but reduce further if the burn rate is accelerating without revenue progress
+- State the pre-profitability status explicitly in Steps 2 and 4, and note estimated months of runway
+
+---
+
+### Cyclical Industrials with Captive Finance Subsidiaries
+
+Companies such as Caterpillar, John Deere, and CNH Industrial operate a captive finance arm (e.g., Cat Financial) that provides customer financing for equipment purchases. This inflates consolidated leverage artificially.
+
+- Separate **industrial segment** operating metrics from the **financial products segment** leverage when calculating Net Debt / EBITDA
+- Use **industrial-only net debt / EBITDA** as the primary leverage metric, and note total consolidated leverage separately
+- The finance subsidiary debt is self-funding (backed by equipment-loan receivables); treat it analogously to a bank's deposit-funded loan book — high gross leverage that is not operationally risky
+- Source segment-level balance sheet data from the 10-K segment footnotes
+
+---
+
+### ADRs and Foreign Primary Listings
+
+When a company's primary listing is outside the US but trades as an American Depositary Receipt (ADR) or American Depositary Share (ADS):
+
+- Always confirm the **ADR ratio** before using any per-share metrics (e.g. AstraZeneca: 1 ADS = 2 ordinary shares; HSBC: 1 ADS = 4 ordinary shares; GSK: 1 ADS = 2 ordinary shares)
+- Source the ratio from the company's ADR programme page or the depositary bank (BNY Mellon, Citibank, JPMorgan)
+- Convert all per-share figures — EPS, DPS, Book Value per share — to **per-ADS basis** before comparing against the ADS market price
+- Dividend yields should use the USD-denominated ADS dividend (which may differ from the local-currency ordinary share dividend due to FX conversion and timing)
+- Note the primary listing exchange and currency, and state both the ADS price and the implied ordinary share price

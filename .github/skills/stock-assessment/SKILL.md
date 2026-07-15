@@ -78,6 +78,7 @@ Key checks:
 - Cash Flow: free cash flow conversion, capex intensity
 - CAGR: 3yr, 5yr, 10yr revenue and EPS CAGR
 - Capital allocation: R&D spend, dividend / buyback history, acquisition activity
+- **Sector adaptations**: banking, exchange operators, pre-profitability companies, cyclical industrials with captive finance, and ADRs each require modified metrics — see [./references/financial-analysis.md](./references/financial-analysis.md) (Sector-Specific Adaptations section)
 
 **Score this section /5.**
 
