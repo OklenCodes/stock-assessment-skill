@@ -1,0 +1,399 @@
+{
+  "schema_version": "1.0.0",
+  "ticker": "TSLA",
+  "company": "Tesla, Inc.",
+  "exchange": "Nasdaq Global Select Market",
+  "currency": "USD",
+  "assessment_date": "2026-09-12",
+  "price_as_of": "2026-09-11T16:00:00-04:00",
+  "generated_for": "stock-assessment",
+  "methodology": {
+    "skill": "../.github/skills/stock-assessment/SKILL.md",
+    "data_source_reference": "../.github/skills/stock-assessment/references/data-sources.md",
+    "missing_value_marker": "data unavailable — not verified",
+    "notes": [
+      "SEC EDGAR and Tesla IR HTML endpoints were inaccessible during collection.",
+      "FY2025 and Q2 2026 financial data is secondary-source verified through StockAnalysis, which attributes it to S&P Global Market Intelligence and Fiscal.ai.",
+      "Calculated values identify their input fact IDs."
+    ]
+  },
+  "sources": [
+    {
+      "id": "sec-company",
+      "tier": "primary",
+      "publisher": "U.S. Securities and Exchange Commission",
+      "title": "Tesla, Inc. company filings",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?CIK=0001318605",
+      "accessed_at": "2026-09-12",
+      "access_status": "blocked",
+      "notes": "CIK and required filing location identified; endpoint returned HTTP 403."
+    },
+    {
+      "id": "tesla-2024-10k",
+      "tier": "primary-mirror",
+      "publisher": "Tesla, Inc.",
+      "title": "FY2024 Form 10-K",
+      "period_end": "2024-12-31",
+      "url": "https://www.annualreports.com/HostedData/AnnualReports/PDF/NASDAQ_TSLA_2024.pdf",
+      "accessed_at": "2026-09-12",
+      "access_status": "retrieved",
+      "notes": "Primary filing mirrored by AnnualReports."
+    },
+    {
+      "id": "yahoo-chart",
+      "tier": "secondary",
+      "publisher": "Yahoo Finance",
+      "title": "TSLA intraday chart API",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/TSLA?interval=1m&range=1d",
+      "accessed_at": "2026-09-12",
+      "access_status": "retrieved"
+    },
+    {
+      "id": "companies-market-cap",
+      "tier": "secondary",
+      "publisher": "CompaniesMarketCap",
+      "title": "Tesla market capitalization",
+      "url": "https://companiesmarketcap.com/tesla/marketcap/",
+      "accessed_at": "2026-09-12",
+      "access_status": "retrieved"
+    },
+    {
+      "id": "stockanalysis-company",
+      "tier": "secondary",
+      "publisher": "StockAnalysis",
+      "title": "Tesla company profile",
+      "url": "https://stockanalysis.com/stocks/tsla/company/",
+      "accessed_at": "2026-09-12",
+      "access_status": "retrieved"
+    },
+    {
+      "id": "stockanalysis-annual",
+      "tier": "secondary",
+      "publisher": "StockAnalysis",
+      "title": "Tesla annual financials",
+      "url": "https://stockanalysis.com/stocks/tsla/financials/",
+      "accessed_at": "2026-09-12",
+      "provider_update": "2026-07-23",
+      "access_status": "retrieved",
+      "notes": "Page attributes data to S&P Global Market Intelligence and Fiscal.ai."
+    },
+    {
+      "id": "stockanalysis-quarterly",
+      "tier": "secondary",
+      "publisher": "StockAnalysis",
+      "title": "Tesla quarterly financials",
+      "url": "https://stockanalysis.com/stocks/tsla/financials/?p=quarterly",
+      "accessed_at": "2026-09-12",
+      "provider_update": "2026-07-23",
+      "access_status": "retrieved"
+    },
+    {
+      "id": "stockanalysis-balance-sheet",
+      "tier": "secondary",
+      "publisher": "StockAnalysis",
+      "title": "Tesla quarterly balance sheet",
+      "url": "https://stockanalysis.com/stocks/tsla/financials/balance-sheet/?p=quarterly",
+      "accessed_at": "2026-09-12",
+      "provider_update": "2026-07-23",
+      "access_status": "retrieved"
+    },
+    {
+      "id": "stockanalysis-cash-flow",
+      "tier": "secondary",
+      "publisher": "StockAnalysis",
+      "title": "Tesla quarterly cash flow statement",
+      "url": "https://stockanalysis.com/stocks/tsla/financials/cash-flow-statement/?p=quarterly",
+      "accessed_at": "2026-09-12",
+      "provider_update": "2026-07-23",
+      "access_status": "retrieved"
+    },
+    {
+      "id": "stockanalysis-statistics",
+      "tier": "secondary",
+      "publisher": "StockAnalysis",
+      "title": "Tesla statistics",
+      "url": "https://stockanalysis.com/stocks/tsla/statistics/",
+      "accessed_at": "2026-09-12",
+      "access_status": "retrieved"
+    },
+    {
+      "id": "stockanalysis-ratios",
+      "tier": "secondary",
+      "publisher": "StockAnalysis",
+      "title": "Tesla financial ratio history",
+      "url": "https://stockanalysis.com/stocks/tsla/financials/ratios/",
+      "accessed_at": "2026-09-12",
+      "access_status": "retrieved"
+    },
+    {
+      "id": "reuters-driver-monitoring",
+      "tier": "secondary-authoritative",
+      "publisher": "Reuters",
+      "title": "House Democrat urges U.S. action over sleeping Tesla drivers",
+      "published_at": "2026-09-10",
+      "url": "https://www.reuters.com/world/us/house-democrat-urges-us-action-over-sleeping-tesla-drivers-2026-09-10/",
+      "accessed_at": "2026-09-12",
+      "access_status": "headline-and-summary-only",
+      "notes": "Direct retrieval returned HTTP 401; surfaced through StockAnalysis news."
+    },
+    {
+      "id": "reuters-semi-europe",
+      "tier": "secondary-authoritative",
+      "publisher": "Reuters",
+      "title": "Tesla eyes European freight market with long-delayed Semi truck",
+      "published_at": "2026-09-11",
+      "url": "https://www.reuters.com/business/autos-transportation/tesla-eyes-european-freight-market-with-long-delayed-semi-truck-2026-09-11/",
+      "accessed_at": "2026-09-12",
+      "access_status": "headline-and-summary-only",
+      "notes": "Direct retrieval returned HTTP 401; surfaced through StockAnalysis news."
+    }
+  ],
+  "facts": [
+    {
+      "id": "price-close",
+      "metric": "share_price",
+      "value": 365.44,
+      "unit": "USD/share",
+      "period": "2026-09-11 regular close",
+      "source_ids": ["yahoo-chart"],
+      "verification": "retrieved"
+    },
+    {
+      "id": "market-cap",
+      "metric": "market_capitalization",
+      "value": 1443000000000,
+      "unit": "USD",
+      "period": "2026-09-11",
+      "source_ids": ["companies-market-cap", "stockanalysis-statistics"],
+      "verification": "cross-checked-secondary"
+    },
+    {
+      "id": "annual-history",
+      "metric": "annual_revenue_and_net_income",
+      "unit": "USD millions",
+      "period": "FY2016-FY2025",
+      "value": [
+        {"fiscal_year": 2016, "revenue": 7000, "net_income_common": -675},
+        {"fiscal_year": 2017, "revenue": 11759, "net_income_common": -1962},
+        {"fiscal_year": 2018, "revenue": 21461, "net_income_common": -976},
+        {"fiscal_year": 2019, "revenue": 24578, "net_income_common": -862},
+        {"fiscal_year": 2020, "revenue": 31536, "net_income_common": 690},
+        {"fiscal_year": 2021, "revenue": 53823, "net_income_common": 5524},
+        {"fiscal_year": 2022, "revenue": 81462, "net_income_common": 12583},
+        {"fiscal_year": 2023, "revenue": 96773, "net_income_common": 14999},
+        {"fiscal_year": 2024, "revenue": 97690, "net_income_common": 7130},
+        {"fiscal_year": 2025, "revenue": 94827, "net_income_common": 3794}
+      ],
+      "source_ids": ["tesla-2024-10k", "stockanalysis-annual"],
+      "verification": "mixed-primary-and-secondary"
+    },
+    {
+      "id": "revenue-cagr-2016-2025",
+      "metric": "revenue_cagr",
+      "value": 0.336,
+      "unit": "ratio",
+      "period": "FY2016-FY2025 (9 years)",
+      "source_ids": ["annual-history"],
+      "verification": "calculated",
+      "formula": "(94827 / 7000)^(1/9) - 1"
+    },
+    {
+      "id": "fy2025-financials",
+      "metric": "financial_summary",
+      "unit": "USD millions except ratios and EPS",
+      "period": "FY2025",
+      "value": {
+        "revenue": 94827,
+        "gross_profit": 17094,
+        "operating_income": 4355,
+        "net_income_common": 3794,
+        "diluted_eps_usd": 1.08,
+        "gross_margin": 0.1803,
+        "operating_margin": 0.0459,
+        "net_margin": 0.04,
+        "operating_cash_flow": 14747,
+        "capital_expenditure": 8527,
+        "free_cash_flow": 6220,
+        "free_cash_flow_margin": 0.0656,
+        "cash_and_investments": 44059,
+        "total_debt": 14719,
+        "net_cash": 29340
+      },
+      "source_ids": ["stockanalysis-annual"],
+      "verification": "secondary-provider"
+    },
+    {
+      "id": "q2-2026-financials",
+      "metric": "financial_summary",
+      "unit": "USD millions except ratios",
+      "period": "Q2 2026 ended 2026-06-30",
+      "value": {
+        "revenue": 28236,
+        "automotive_sales": 20006,
+        "regulatory_credits": 146,
+        "automotive_leasing": 364,
+        "energy_generation_and_storage_revenue": 3139,
+        "services_and_other_revenue": 4581,
+        "gross_margin": 0.1683,
+        "operating_margin": 0.0141,
+        "net_margin": 0.0395,
+        "operating_cash_flow": 4697,
+        "capital_expenditure": 5789,
+        "free_cash_flow": -1092,
+        "free_cash_flow_margin": -0.0387,
+        "cash_and_investments": 43524,
+        "total_debt": 16080,
+        "net_cash": 27444
+      },
+      "source_ids": ["stockanalysis-quarterly", "stockanalysis-balance-sheet", "stockanalysis-cash-flow"],
+      "verification": "secondary-provider"
+    },
+    {
+      "id": "ttm-2026-q2-financials",
+      "metric": "financial_summary",
+      "unit": "USD millions except ratios",
+      "period": "TTM ended 2026-06-30",
+      "value": {
+        "revenue": 103619,
+        "gross_profit": 19534,
+        "operating_income": 4278,
+        "net_income": 3806,
+        "ebitda": 10755,
+        "operating_cash_flow": 18685,
+        "capital_expenditure": 12923,
+        "free_cash_flow": 5762,
+        "gross_margin": 0.1885,
+        "operating_margin": 0.0413,
+        "net_margin": 0.0367,
+        "ebitda_margin": 0.1038,
+        "free_cash_flow_margin": 0.0556
+      },
+      "source_ids": ["stockanalysis-statistics"],
+      "verification": "secondary-provider"
+    },
+    {
+      "id": "returns-ttm",
+      "metric": "capital_returns",
+      "unit": "ratio",
+      "period": "TTM ended 2026-06-30",
+      "value": {
+        "roe": 0.0467,
+        "roic": 0.0546,
+        "roce": 0.0378,
+        "provider_estimated_wacc": 0.1425
+      },
+      "source_ids": ["stockanalysis-statistics"],
+      "verification": "secondary-provider"
+    },
+    {
+      "id": "ownership",
+      "metric": "ownership",
+      "unit": "ratio",
+      "period": "accessed 2026-09-12",
+      "value": {
+        "institutional": 0.4313,
+        "insider": 0.2853
+      },
+      "source_ids": ["stockanalysis-statistics"],
+      "verification": "secondary-provider"
+    },
+    {
+      "id": "valuation-current",
+      "metric": "valuation_multiples",
+      "period": "2026-09-11/2026-09-12",
+      "value": {
+        "trailing_pe": 379.22,
+        "forward_pe": 191.97,
+        "price_to_free_cash_flow": 250.49,
+        "enterprise_value_to_ebitda": 131.65,
+        "enterprise_value_to_free_cash_flow": 245.73,
+        "price_to_sales": 13.93,
+        "free_cash_flow_yield": 0.004
+      },
+      "source_ids": ["stockanalysis-statistics", "stockanalysis-ratios"],
+      "verification": "secondary-provider"
+    },
+    {
+      "id": "valuation-history",
+      "metric": "valuation_multiples_by_fiscal_year",
+      "period": "FY2021-FY2025",
+      "value": [
+        {"fiscal_year": 2021, "pe": 192.54, "price_to_free_cash_flow": 213.44, "enterprise_value_to_ebitda": 112.26},
+        {"fiscal_year": 2022, "pe": 30.91, "price_to_free_cash_flow": 51.45, "enterprise_value_to_ebitda": 21.76},
+        {"fiscal_year": 2023, "pe": 52.66, "price_to_free_cash_flow": 181.29, "enterprise_value_to_ebitda": 57.02},
+        {"fiscal_year": 2024, "pe": 181.82, "price_to_free_cash_flow": 362.01, "enterprise_value_to_ebitda": 97.97},
+        {"fiscal_year": 2025, "pe": 394.22, "price_to_free_cash_flow": 240.46, "enterprise_value_to_ebitda": 139.82}
+      ],
+      "source_ids": ["stockanalysis-annual", "stockanalysis-ratios"],
+      "verification": "secondary-provider"
+    }
+  ],
+  "unavailable": [
+    {
+      "metric": "latest_geographic_revenue",
+      "status": "data unavailable — not verified",
+      "required_sources": ["latest 10-K geographic revenue note"]
+    },
+    {
+      "metric": "latest_vehicle_production_and_deliveries",
+      "status": "data unavailable — not verified",
+      "required_sources": ["Tesla quarterly production and delivery release"]
+    },
+    {
+      "metric": "latest_energy_storage_deployments",
+      "status": "data unavailable — not verified",
+      "required_sources": ["Tesla quarterly production and delivery release"]
+    },
+    {
+      "metric": "goodwill_and_identifiable_intangibles",
+      "status": "data unavailable — not verified",
+      "required_sources": ["latest 10-Q balance sheet and notes"]
+    },
+    {
+      "metric": "research_and_development_expense",
+      "status": "data unavailable — not verified",
+      "required_sources": ["latest 10-K and 10-Q"]
+    },
+    {
+      "metric": "five_ten_fifteen_year_average_returns",
+      "status": "data unavailable — not verified",
+      "required_sources": ["historical 10-K series or verified financial database"]
+    },
+    {
+      "metric": "executive_compensation_and_related_party_transactions",
+      "status": "data unavailable — not verified",
+      "required_sources": ["latest DEF 14A"]
+    },
+    {
+      "metric": "trailing_twelve_month_insider_transactions",
+      "status": "data unavailable — not verified",
+      "required_sources": ["reconciled SEC Form 4 set"]
+    },
+    {
+      "metric": "comprehensive_litigation_and_regulatory_exposure",
+      "status": "data unavailable — not verified",
+      "required_sources": ["latest 10-K Item 3 and 10-Q contingency notes"]
+    },
+    {
+      "metric": "congressional_and_presidential_trading",
+      "status": "data unavailable — not verified",
+      "required_sources": ["House disclosures", "Senate disclosures", "OGE disclosures"]
+    },
+    {
+      "metric": "same_date_peer_valuation_multiples",
+      "status": "data unavailable — not fully retrieved",
+      "required_sources": ["consistent same-date peer data"]
+    }
+  ],
+  "scores": {
+    "initial_screening": 3.5,
+    "business_model": 3.0,
+    "financial_analysis": 3.5,
+    "strategy_and_returns": 2.5,
+    "red_flags": 2.5,
+    "quality_total": 15.0,
+    "quality_rating": "Average quality",
+    "valuation": "Expensive",
+    "verdict": "Neutral — monitor"
+  }
+}

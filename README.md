@@ -94,7 +94,8 @@ Every assessment returns:
 
 ## Example Output
 
-See the [TSLA assessment example](./examples/TSLA-2026-06-15.md) *(add your saved reports here)*.
+See the [TSLA assessment example](./examples/TSLA-2026-09-12.md) and its
+[machine-readable source snapshot](./data/TSLA-2026-09-12.json).
 
 ---
 
